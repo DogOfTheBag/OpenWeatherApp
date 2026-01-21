@@ -15,7 +15,6 @@ import com.example.openweatherapp.modelo.Ciudad;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bumptech.glide.Glide;
 /*la clase estándar que vimos para hacer el recyclerView*/
 public class CiudadAdapter extends RecyclerView.Adapter<CiudadAdapter.ciudadVH> {
 
@@ -49,24 +48,20 @@ public class CiudadAdapter extends RecyclerView.Adapter<CiudadAdapter.ciudadVH> 
         v.txtTemp.setText(c.getTempMedia() + "°C");
         v.txtEstado.setText(c.getDescripcion()); // o lo que uses
 
-        int gif = gifPorWeatherId(c.getIdTiempo());
+        int icono = drawablePorWeatherId(c.getIdTiempo());
 
-        Glide.with(v.imgTiempo.getContext())
-                .asGif()
-                .load(gif)
-                .into(v.imgTiempo);
+        v.imgTiempo.setImageResource(icono);
     }
 
-    /*TENGO QUE BUSCAR LOS GIFS Y METERLOS EN LA CARPETA DE DRAWABLE*/
-    private int gifPorWeatherId(Integer id) {
-        if (id == null) return R.drawable.gif_desconocido;
+    private int drawablePorWeatherId(Integer id) {
+        if (id == null) return R.drawable.ic_desconocido;
 
-        if (id >= 200 && id < 600) return R.drawable.gif_lluvia;
-        if (id >= 600 && id < 700) return R.drawable.gif_nieve;
-        if (id == 800) return R.drawable.gif_sol;
-        if (id >= 801 && id <= 804) return R.drawable.gif_nublado;
+        if (id >= 200 && id < 600) return R.drawable.ic_lluvia;
+        if (id >= 600 && id < 700) return R.drawable.ic_nieve;
+        if (id == 800) return R.drawable.ic_sol;
+        if (id >= 801 && id <= 804) return R.drawable.ic_nube;
 
-        return R.drawable.gif_desconocido;
+        return R.drawable.ic_desconocido;
     }
 
 
