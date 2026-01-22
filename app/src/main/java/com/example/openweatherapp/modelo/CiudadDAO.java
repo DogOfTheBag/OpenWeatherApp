@@ -22,7 +22,7 @@ public interface CiudadDAO {
     @Query("Select * from ciudades ORDER BY nombre ASC")
     LiveData<List<Ciudad>> getCiudades();
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertar(Ciudad ciudad);
 
     @Insert

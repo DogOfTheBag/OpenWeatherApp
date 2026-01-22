@@ -1,12 +1,14 @@
 package com.example.openweatherapp.modelo;
 
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 
 /**/
 
-@Entity(tableName = "ciudades")
+@Entity(tableName = "ciudades",
+indices = {@Index(value = {"nombre"}, unique = true)})
 public class Ciudad {
     @PrimaryKey (autoGenerate = true)
     private Integer id;
@@ -14,7 +16,7 @@ public class Ciudad {
 
     private Double tempMedia;
 
-    //usaremos esta variable para mapear los gifs que le pongamos a las ciudades del tiempo
+    //usaremos esta variable para mapear las imagenes de estado.
     private Integer idTiempo;
 
     private String descripcion;

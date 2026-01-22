@@ -23,7 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controlador.ActivityAñadir" />
+        <activity android:name=".controlador.ActivityAñadir"
+        android:theme="@style/Theme.OpenWeatherApp.NoActionBar"/>
     </application>
 
 </manifest>

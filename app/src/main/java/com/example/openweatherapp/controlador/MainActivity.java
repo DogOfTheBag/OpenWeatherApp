@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         //el ejercicio nos pide el action bar, asi que le ponemos el titulo de la app arriba
         if(getSupportActionBar() != null){
-            getSupportActionBar().setTitle("WEATHER APP");
+            getSupportActionBar().setTitle("OPEN WEATHER APP");
         }
 
         RecyclerView recycler = findViewById(R.id.recycler);
@@ -55,7 +55,12 @@ public class MainActivity extends AppCompatActivity {
         adapter = new CiudadAdapter();
         recycler.setAdapter(adapter);
 
+        /*Como nos pide el ejercicio, usaremos un ViewModel para que que directamente la app se ponga a observar
+        * le pasamos el viewmodel usando viewModelProvider, que coge la clase que hemos hecho, y se pone a
+        * observar cambios que haya en el listadso de ciudades*/
         vm = new ViewModelProvider(this).get(CiudadViewModel.class);
+        /*lo mismo que en weather app, el viewmodel observa cambios en el listado, y si los hay, cogemos la lista
+        * que tenemos y la ponemos en el adapter con el metodo reference (::)*/
         vm.getCiudades().observe(this, adapter::setLista);
 
         //el boton nos ejecutará el metodo para cambiarnos a la actividad de añadir ciudades

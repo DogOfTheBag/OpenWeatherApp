@@ -40,7 +40,11 @@ public class CiudadAdapter extends RecyclerView.Adapter<CiudadAdapter.ciudadVH> 
 
 
 
-
+    /*Esto es basicamente igual que el Weather App normal, salvo que ahora en vez de tener un Enum
+    * con los diferentes estados, cogemos el id que nos da la api, y dependiendo del id que nos devuelva
+    * ponemos un drawable
+    * los ids de la api se corresponde a estados, del palo que 800 es soleado, 801 es algo nublado
+    * ESTO SOLO AFECTA A LOS SIMBOLOS DE LA MAIN ACTIVITY*/
     @Override
     public void onBindViewHolder(@NonNull ciudadVH v, int position){
         Ciudad c = lista.get(position);
@@ -58,8 +62,8 @@ public class CiudadAdapter extends RecyclerView.Adapter<CiudadAdapter.ciudadVH> 
 
         if (id >= 200 && id < 600) return R.drawable.ic_lluvia;
         if (id >= 600 && id < 700) return R.drawable.ic_nieve;
-        if (id == 800) return R.drawable.ic_sol;
-        if (id >= 801 && id <= 804) return R.drawable.ic_nube;
+        if (id == 800 && id == 801) return R.drawable.ic_sol;
+        if (id >= 802 && id <= 804) return R.drawable.ic_nube;
 
         return R.drawable.ic_desconocido;
     }
