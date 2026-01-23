@@ -62,7 +62,7 @@ public class CiudadAdapter extends RecyclerView.Adapter<CiudadAdapter.ciudadVH> 
 
         if (id >= 200 && id < 600) return R.drawable.ic_lluvia;
         if (id >= 600 && id < 700) return R.drawable.ic_nieve;
-        if (id == 800 && id == 801) return R.drawable.ic_sol;
+        if (id == 800 || id == 801) return R.drawable.ic_sol;
         if (id >= 802 && id <= 804) return R.drawable.ic_nube;
 
         return R.drawable.ic_desconocido;
